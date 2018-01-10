@@ -26,6 +26,19 @@ func (t *Handle) Test(args *model.RequestArg, reply *model.ResponseArg) error {
 	return nil
 }
 
+func (t *Handle) Register(args *model.RegisterArgs, reply *model.ResponseArg) error {
+
+	fmt.Println("Register :receive:", args)
+	reply.RespArgSecond = time.Now().String()
+	reply.RespArgOne = "response"
+	reply.Code = 200
+	reply.Msg = "Success"
+
+	fmt.Println("response:", reply)
+
+	return nil
+}
+
 func main() {
 
 	/*0.0.0.0*/
