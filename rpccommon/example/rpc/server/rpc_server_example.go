@@ -6,6 +6,7 @@ import (
 	"../../rpc/model"
 	"../../../ttrpc"
 	"../consts"
+	"time"
 )
 
 // Handle define handle
@@ -15,7 +16,7 @@ type Handle int
 func (t *Handle) Test(args *model.RequestArg, reply *model.ResponseArg) error {
 
 	fmt.Println("receive:", args)
-
+	reply.RespArgSecond = time.Now().String()
 	reply.RespArgOne = "response"
 	reply.Code = 200
 	reply.Msg = "Success"
