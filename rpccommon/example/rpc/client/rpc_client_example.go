@@ -5,12 +5,19 @@ import (
 
 	"../../rpc/model"
 	"../../../ttrpc"
+	"../consts"
 )
 
 func main() {
+	/*127.0.0.1*/
+	client := ttrpc.NewClient(consts.MASTER_ADDR+":9999", 10)
+	clientTest(client)
 
-	client := ttrpc.NewClient("127.0.0.1:9999", 10)
+}
 
+
+
+func clientTest(client * ttrpc.Client ){
 	req := new(model.RequestArg)
 	req.ArgOne = "test"
 	var resp model.ResponseArg

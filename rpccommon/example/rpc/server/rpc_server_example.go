@@ -5,6 +5,7 @@ import (
 
 	"../../rpc/model"
 	"../../../ttrpc"
+	"../consts"
 )
 
 // Handle define handle
@@ -26,7 +27,8 @@ func (t *Handle) Test(args *model.RequestArg, reply *model.ResponseArg) error {
 
 func main() {
 
-	server := ttrpc.NewServer("0.0.0.0:9999")
+	/*0.0.0.0*/
+	server := ttrpc.NewServer(consts.MASTER_ADDR+":9999")
 	server.Register(new(Handle))
 
 	/*监听请求，接收连接，处理请求*/
