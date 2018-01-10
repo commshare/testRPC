@@ -9,6 +9,7 @@ import (
 	"sync"
 	"net"
 	"../utils"
+	"time"
 )
 
 func main() {
@@ -43,7 +44,7 @@ func clientTest(client * ttrpc.Client ){
 
 func clientRegister(client * ttrpc.Client){
 	registerArgs := new(model.RegisterArgs)
-	registerArgs.WorkerName="register_client_1"
+	registerArgs.WorkerName="register_client_1@["+time.Now().String()+"]"
 	registerArgs.IpAddress = utils.GetFirstIP()
 	var resp model.ResponseArg
 	fmt.Printf("send: %+v\n", registerArgs)
